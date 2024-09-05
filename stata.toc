@@ -1,0 +1,31 @@
+{smcl}
+{txt}{sf}{ul off}
+{.-}
+{s6hlp}
+package ^lincde^ from https://github.com/causalMedAnalysis/lincde
+{smcl}
+{.-}
+{s6hlp}
+
+{smcl}
+{hilite:TITLE}{p 6 8}'LINCDE': module to estimate controlled direct effects using linear models{p_end}
+{s6hlp}
+
+^DESCRIPTION/AUTHOR(S)^
+      
+lincde estimates controlled direct effects using linear models.
+      
+Requires: Stata version 15
+      
+Distribution-Date: 20240717
+      
+Author: Geoff Wodtke, University of Chicago
+Support: email wodtke@@uchicago.edu
+      
+
+^INSTALLATION FILES^                              (type ^net install^ ^lincde^)
+      lincde.ado
+	  lincdebs.ado
+      lincde.sthlp
+
+{txt}{sf}{ul off}
