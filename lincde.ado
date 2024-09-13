@@ -14,17 +14,11 @@ program define lincde, eclass
 		d(real) ///
 		dstar(real) ///
 		m(real) ///
-		[cvars(varlist numeric)] ///
-		[NOINTERaction] ///
-		[cxd] ///
-		[cxm] ///
-		[reps(integer 200)] ///
-		[strata(varname numeric)] ///
-		[cluster(varname numeric)] ///
-		[level(cilevel)] ///
-		[seed(passthru)] ///
-		[saving(string)] ///
-		[detail]
+		[cvars(varlist numeric) ///
+		NOINTERaction ///
+		cxd ///
+		cxm ///
+		detail * ]
 
 	qui {
 		marksample touse
@@ -38,23 +32,11 @@ program define lincde, eclass
 			cvars(`cvars') `nointeraction' `cxd' `cxm'
 	}
 	
-	if ("`saving'" != "") {
-		bootstrap CDE=r(cde), force ///
-			reps(`reps') strata(`strata') cluster(`cluster') level(`level') `seed' ///
-			saving(`saving', replace) noheader notable: ///
-			lincdebs `varlist' [`weight' `exp'] if `touse' , ///
-				dvar(`dvar') mvar(`mvar') d(`d') dstar(`dstar') m(`m') ///
-				cvars(`cvars') `nointeraction' `cxd' `cxm'
-	}
-
-	if ("`saving'" == "") {
-		bootstrap CDE=r(cde), force ///
-			reps(`reps') strata(`strata') cluster(`cluster') level(`level') `seed' ///
-			noheader notable: ///
-			lincdebs `varlist' [`weight' `exp'] if `touse' , ///
-				dvar(`dvar') mvar(`mvar') d(`d') dstar(`dstar') m(`m') ///
-				cvars(`cvars') `nointeraction' `cxd' `cxm'
-	}
+	bootstrap ///
+		CDE=r(cde), `options' force noheader notable: ///
+		lincdebs `varlist' [`weight' `exp'] if `touse', ///
+			dvar(`dvar') mvar(`mvar') d(`d') dstar(`dstar') m(`m') ///
+			cvars(`cvars') `nointeraction' `cxd' `cxm'
 			
 	estat bootstrap, p noheader
 	di "Note: CDE evaluated at m=`m'"
