@@ -62,7 +62,8 @@ included in the outcome model.
 {title:Description}
 
 {pstd}{cmd:lincde} estimates controlled direct effects using a linear model for the outcome conditional on treatment, the mediator, 
-and the baseline covariates after centering them around their sample means.
+and the baseline covariates after centering them around their sample means, and it computes inferential statistics using the 
+nonparametric bootstrap. {p_end}
 
 {pstd}If using {help pweights} from a complex sample design that require rescaling to produce valid boostrap estimates, be sure to appropriately 
 specify the strata(), cluster(), and size() options from the {help bootstrap} command so that Nc-1 clusters are sampled from each stratum 
