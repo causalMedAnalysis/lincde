@@ -25,16 +25,12 @@ lincde depvar [if] [in] [pweight], dvar(varname) mvar(varname) d(real) dstar(rea
 - `nointeraction`: Specifies whether a treatment-mediator interaction is excluded from the outcome model. By default, the interaction is included.
 - `cxd`: Includes all two-way interactions between the treatment and baseline covariates in the outcome model.
 - `cxm`: Includes all two-way interactions between the mediator and baseline covariates in the outcome model.
-- `reps(integer)`: Specifies the number of replications for bootstrap resampling (default is 200).
-- `strata(varname)`: Specifies a variable for resampling strata. If specified, bootstrap samples are taken independently within each stratum.
-- `cluster(varname)`: Specifies a variable that identifies resampling clusters. If specified, the sample drawn during each replication is a bootstrap sample of clusters.
-- `level(cilevel)`: Specifies the confidence level for bootstrap confidence intervals (default is 95%).
-- `seed(passthru)`: Specifies the seed for bootstrap resampling.
 - `detail`: Prints the fitted model used to construct the effect estimates.
+- `bootstrap_options: All `bootstrap` options are available.
 
 ## Description
 
-The `lincde` module estimates controlled direct effects using a linear model for the outcome, conditional on treatment, the mediator, and the baseline covariates (if specified) after centering them around their sample means.
+The `lincde` module estimates controlled direct effects using a linear model for the outcome, conditional on treatment, the mediator, and the baseline covariates (if specified) after centering them around their sample means, and it computes inferential statistics using the nonparametric bootstrap.
 
 - **Controlled direct effect**: The effect of treatment on the outcome, holding the mediator constant at a specific level. If there is no treatment-mediator interaction, the controlled direct effect is constant across different mediator values.
 
