@@ -1,4 +1,4 @@
-# lincde: Stata Module to Estimate Controlled Direct Effects using Linear Models
+# lincde: A Stata Module to Estimate Controlled Direct Effects using Linear Models
 
 ## Overview
 
